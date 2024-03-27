@@ -1,18 +1,18 @@
-'use client';
-
-import Head from 'next/head';
 import * as React from 'react';
+
+import { Typography } from '@/app/components';
 
 export default function HomePage() {
   return (
     <main>
-      <Head>
-        <title>Hi</title>
-      </Head>
-      <section className='bg-white'>
-        <div>
-          Whereas recognition of the inherent dignity
-        </div>
+      <section>
+        <Typography variant='h1'>Grokking Blog</Typography>
+        <Typography variant='p'>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
+          consequuntur ducimus adipisci nesciunt facere, reprehenderit, quisquam
+          maxime atque dolorum impedit quaerat voluptatem? Dolore cupiditate
+          similique iste consequatur fuga asperiores iure?
+        </Typography>
       </section>
     </main>
   );

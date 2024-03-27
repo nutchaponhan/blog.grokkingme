@@ -42,6 +42,7 @@
   */
 body {
   font-family: 'Montserrat';
+  font-size: 62.5%;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }

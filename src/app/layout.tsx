@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import * as React from 'react';
 
 import '@/styles/globals.css';
 
+import { Navbar } from '@/app/components';
 import { siteConfig } from '@/constant/config';
 
 export const metadata: Metadata = {
@@ -50,7 +50,10 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body className='h-screen container mx-auto'>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

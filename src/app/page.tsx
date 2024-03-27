@@ -11,7 +11,7 @@ export default function HomePage() {
       </Head>
       <section className='bg-white'>
         <div>
-          hello
+          Whereas recognition of the inherent dignity
         </div>
       </section>
     </main>

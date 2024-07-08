@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <main>
-      <div>Hello</div>
-    </main>
-  );
+import { Box, Container, Flex, Button } from '@radix-ui/themes';
+
+export default function MyApp() {
+  return <Box>hello worlds</Box>;
 }

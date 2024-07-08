@@ -6,9 +6,12 @@ import {
   ReactNode,
   SetStateAction,
   useState,
+  useContext,
 } from 'react';
 
 import { Theme, ThemePanel } from '@radix-ui/themes';
+
+import { createContextFactory } from '../context.factory';
 
 const DARK = 'dark';
 const LIGHT = 'light';
@@ -20,15 +23,13 @@ type ThemeProps = {
   toggle: Dispatch<SetStateAction<MODE>>;
 };
 
-const ThemeContext = createContext<ThemeProps>({
+const { Provider, useCustomContext } = createContextFactory<ThemeProps>({
   mode: DARK,
   toggle: () => {},
 });
 
-const ThemeProvider = ThemeContext.Provider;
-
-const AppTheme = ({ children }: { children: ReactNode }) => {
-  const [mode, setMode] = useState<MODE>(DARK);
+export const AppTheme = ({ children }: { children: ReactNode }) => {
+  const [mode, setMode] = useState<MODE>(LIGHT);
 
   const switchMode = () => {
     if (mode === DARK) setMode(LIGHT);
@@ -37,8 +38,10 @@ const AppTheme = ({ children }: { children: ReactNode }) => {
 
   const value = { mode, toggle: switchMode };
 
+  console.log({ value });
+
   return (
-    <ThemeProvider value={value}>
+    <Provider value={value}>
       <Theme
         accentColor='jade'
         grayColor='gray'
@@ -49,8 +52,8 @@ const AppTheme = ({ children }: { children: ReactNode }) => {
         {children}
         <ThemePanel />
       </Theme>
-    </ThemeProvider>
+    </Provider>
   );
 };
 
-export default AppTheme;
+export const useAppTheme = useCustomContext;

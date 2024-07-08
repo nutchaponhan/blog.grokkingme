@@ -1,13 +1,16 @@
 import '@radix-ui/themes/styles.css';
 
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
+import { Container } from '@radix-ui/themes';
 
 import './globals.css';
 
-import { AppTheme } from '../providers';
+import { AppTheme } from '@/contexts';
 
-const inter = Inter({ subsets: ['latin'] });
+import { Navbar } from '@/components/share';
+
+const montSerrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'GrokkingMe',
@@ -21,8 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <AppTheme>{children}</AppTheme>
+      <body className={montSerrat.className}>
+        <AppTheme>
+          <Navbar />
+          <Container size='2'>{children}</Container>
+        </AppTheme>
       </body>
     </html>
   );

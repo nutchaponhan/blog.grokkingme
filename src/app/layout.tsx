@@ -7,10 +7,12 @@ import { Container } from '@radix-ui/themes';
 import './globals.css';
 
 import { AppTheme } from '@/contexts';
-
 import { Navbar } from '@/components/share';
 
-const montSerrat = Montserrat({ subsets: ['latin'] });
+const montSerrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montSerrat',
+});
 
 export const metadata: Metadata = {
   title: 'GrokkingMe',
@@ -27,7 +29,9 @@ export default function RootLayout({
       <body className={montSerrat.className}>
         <AppTheme>
           <Navbar />
-          <Container size='2'>{children}</Container>
+          <Container size='3' py={'6'}>
+            {children}
+          </Container>
         </AppTheme>
       </body>
     </html>

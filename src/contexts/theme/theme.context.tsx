@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useState,
-  useContext,
-} from 'react';
+import { ReactNode, useState } from 'react';
 
 import { Theme, ThemePanel } from '@radix-ui/themes';
 
@@ -20,7 +13,7 @@ type MODE = typeof DARK | typeof LIGHT;
 
 type ThemeProps = {
   mode: MODE;
-  toggle: Dispatch<SetStateAction<MODE>>;
+  toggle: () => void;
 };
 
 const { Provider, useCustomContext } = createContextFactory<ThemeProps>({
@@ -37,8 +30,6 @@ export const AppTheme = ({ children }: { children: ReactNode }) => {
   };
 
   const value = { mode, toggle: switchMode };
-
-  console.log({ value });
 
   return (
     <Provider value={value}>

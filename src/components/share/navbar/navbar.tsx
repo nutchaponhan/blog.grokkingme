@@ -1,37 +1,41 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
+import Link from 'next/link';
 import { Box } from '@radix-ui/themes';
 import { MoonIcon } from '@radix-ui/react-icons';
 
 import { useAppTheme } from '@/contexts/theme/theme.context';
 
 const NavBar = () => {
-  const { mode, toggle } = useAppTheme();
+  const { toggle } = useAppTheme();
 
   return (
-    <nav className='my-6 text-xl'>
+    <nav className='py-4 text-xl shadow-lg'>
       <Box className='mx-auto max-w-screen-lg px-2'>
         <Box className='relative flex items-center justify-between'>
           <Box className='flex flex-1 items-center'>
             <Box className='flex flex-shrink-0 items-center'>
-              <img
-                className='h-8 w-auto'
-                src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
-                alt='Your Company'
-              />
+              <Link href='/'>
+                <img
+                  className='h-8 w-auto'
+                  src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
+                  alt='Your Company'
+                />
+              </Link>
             </Box>
             <Box className='ml-6'>
               <Box className='flex space-x-4'>
-                <a
-                  href='#'
+                <Link
+                  href='latest'
                   className='rounded-md px-3 py-2'
                   aria-current='page'
                 >
                   Latest
-                </a>
-                <a href='#' className='rounded-md px-3 py-2'>
+                </Link>
+                <Link href='posts' className='rounded-md px-3 py-2'>
                   Posts
-                </a>
+                </Link>
               </Box>
             </Box>
           </Box>

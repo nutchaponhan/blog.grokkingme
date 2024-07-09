@@ -33,7 +33,6 @@ export function createContextFactory<T>(
   };
 
   const Provider: ProviderType = ({ children, value }) => {
-    console.log({ defaultValue });
     return (
       <Context.Provider value={{ ...defaultValue, ...value }}>
         {children}

@@ -86,3 +86,10 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/*
+    Custom Radix Theme
+  */
+.radix-themes {
+  --default-font-family: var(--font-montSerrat);
+}
